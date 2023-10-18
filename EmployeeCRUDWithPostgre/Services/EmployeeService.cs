@@ -22,7 +22,7 @@ namespace EmployeeCRUDWithPostgre.Services
 
         public async Task<List<Employee>> GetEmployeeList()
         {
-            var employeeList = await _dbService.GetAll<Employee>("SELECT * FROM public.employee", new { });
+            var employeeList = await _dbService.GetAll<Employee>("SELECT * FROM public.employee ORDER BY id", new { });
             return employeeList;
         }
 

@@ -16,7 +16,7 @@ namespace EmployeeCRUDWithPostgre.Controllers
             _employeeService = employeeService;
         }
 
-        [HttpGet("all")] // Renamed the endpoint to "api/employees/all"
+        [HttpGet("GetAllEmployees")] // Renamed the endpoint to "api/employees/all"
         public async Task<IActionResult> GetAllEmployees()
         {
             var result = await _employeeService.GetEmployeeList();
@@ -24,7 +24,7 @@ namespace EmployeeCRUDWithPostgre.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}")] // This is now "api/employees/{id}"
+        [HttpGet("GetEmployeeById/{id}")] // This is now "api/employees/{id}"
         public async Task<IActionResult> GetEmployeeById(int id)
         {
             var result = await _employeeService.GetEmployee(id);
@@ -37,7 +37,7 @@ namespace EmployeeCRUDWithPostgre.Controllers
             return Ok(result);
         }
 
-        [HttpPost("add")] // Renamed the endpoint to "api/employees/add"
+        [HttpPost("AddEmployee")] // Renamed the endpoint to "api/employees/add"
         public async Task<IActionResult> AddEmployee([FromBody] Employee employee)
         {
             var result = await _employeeService.CreateEmployee(employee);
@@ -45,7 +45,7 @@ namespace EmployeeCRUDWithPostgre.Controllers
             return Ok(result);
         }
 
-        [HttpPut("update")] // Renamed the endpoint to "api/employees/update"
+        [HttpPut("UpdateEmployee")] // Renamed the endpoint to "api/employees/update"
         public async Task<IActionResult> UpdateEmployee([FromBody] Employee employee)
         {
             var result = await _employeeService.UpdateEmployee(employee);
@@ -53,7 +53,7 @@ namespace EmployeeCRUDWithPostgre.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("{id}")] // This is now "api/employees/{id}"
+        [HttpDelete("DeleteEmployee/{id}")] // This is now "api/employees/{id}"
         public async Task<IActionResult> DeleteEmployeeById(int id)
         {
             var result = await _employeeService.DeleteEmployee(id);

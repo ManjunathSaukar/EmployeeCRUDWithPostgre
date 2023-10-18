@@ -20,7 +20,7 @@ namespace EmployeeCRUDWithPostgre
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-
+            
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -29,6 +29,10 @@ namespace EmployeeCRUDWithPostgre
             }
 
             app.UseHttpsRedirection();
+            app.UseCors(services => services
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin());
 
             app.UseAuthorization();
 
